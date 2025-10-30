@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Upload Your Dataset</h3>
+            </div>
+            <div class="card-body">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Choose CSV file:</label>
+                        <input type="file" class="form-control" name="file" id="file" accept=".csv" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload Dataset</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h4>Supported Visualizations:</h4>
+            <ul class="list-group">
+                <li class="list-group-item">📊 Scatter Plots</li>
+                <li class="list-group-item">📈 Regression Plots</li>
+                <li class="list-group-item">🔥 Correlation Heatmaps</li>
+                <li class="list-group-item">🌲 Decision Trees</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

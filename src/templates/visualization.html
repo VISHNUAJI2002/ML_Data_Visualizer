@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title">Visualization Result</h3>
+                <div>
+                    <div class="btn-group me-2" role="group">
+                        <a href="/download/png" class="btn btn-success">
+                            <i class="fas fa-download"></i> Download PNG
+                        </a>
+                        <a href="/download/pdf" class="btn btn-danger">
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </a>
+                    </div>
+                    <a href="/" class="btn btn-primary">Upload New Dataset</a>
+                </div>
+            </div>
+            <div class="card-body text-center">
+                {% if plot %}
+                <img src="data:image/png;base64,{{ plot }}" class="img-fluid" alt="Visualization">
+                <div class="mt-3">
+                    <small class="text-muted">
+                        Tip: Right-click the image to save, or use the download buttons above for high-resolution files.
+                    </small>
+                </div>
+                {% else %}
+                <div class="alert alert-warning">
+                    <h4>No visualization generated</h4>
+                    <p>Please check your data and try again.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
